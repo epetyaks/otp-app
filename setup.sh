@@ -42,7 +42,7 @@ sudo firewall-cmd --add-port=1812/udp
 sudo firewall-cmd --add-port=1813/udp
 sudo firewall-cmd --add-port=443/tcp
 echo "Getting project files..."
-sudo git clone https://github.com/epetyaks/otp.git
+sudo git clone https://github.com/epetyaks/otp-app.git
 while true; do
     read -p "Do you want to generate Self-signed certificates for frontend and API calls ? Y/N: " yn
     case $yn in
