@@ -59,6 +59,9 @@ yes | sudo cp -rf otpapp/ssl/public_cert.pem otpapp/api/ssl/publice_cert.pem
 yes | sudo cp -rf otpapp/ssl/private_key.pem otpapp/front/ssl/private_key.pem
 yes | sudo cp -rf otpapp/ssl/public_cert.pem otpapp/front/ssl/publice_cert.pem
 cd otpapp
+read -p "Enter server address strictly as https://<host ip address> or https://<host domain name> for exapmle https://10.10.10.10 : " addrf
+sed -i~ -e "s@var serverURI.*@var serverURI = ${addrf}@" front/html/script/vars.js
+echo "If you did mistake in URL, please go to front/html/script/vars.js and change address appropriately"
 sudo docker-compose up
 ;
 
