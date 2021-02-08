@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+    radius:
+        container_name: otp_radius
+        build: radius/.
+        ports:
+            - "1812:1812/udp"
+            - "1813:1813/udp"
+        expose:
+            - "22/tcp"
+        volumes:
+            - otp-radius-volume:/home/
+        privileged: true
+        networks:
+            radiusotp-net:
+                ipv4_address: 192.168.134.101
+    api:
+        container_name: otp_api
+        build: api/.
+        ports:
+            - "9443:9443/tcp"
+        networks: 
+            radiusotp-net:
+                ipv4_address: 192.168.134.103
+    db:
+        container_name: otp_db
+        build: db/.
+        volumes:
+            - otp-db-volume:/var/lib/mysql/
+        networks:
+            radiusotp-net:
+                ipv4_address: 192.168.134.102
+    front:
+        container_name: otp_front
+        build: front/.
+        ports:
+            - "443:443/tcp"
+        networks: 
+            radiusotp-net:
+                ipv4_address: 192.168.134.104
+
+
+
+networks:
+    radiusotp-net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.134.96/28
+                  gateway: 192.168.134.97
+
+volumes:
+  otp-radius-volume:
+  otp-db-volume:

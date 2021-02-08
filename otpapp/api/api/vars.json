@@ -1,0 +1,15 @@
+{
+   "linuxGroup":"tokenusers",
+   "linuxIP":"192.168.134.101",
+   "linuxCred":{
+      "user":"root",
+      "password":"testing123"
+   },
+   "DBIP":"192.168.134.102",
+   "DBCreds":{
+      "user":"useradmin",
+      "password":"testing123"
+   },
+   "DBName":"radiususers",
+   "usersPerPage":15
+}

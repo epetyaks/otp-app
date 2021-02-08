@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+ <title>QR code one-time link</title>
+ <script type="text/javascript" src="/script/qrious.js"></script>
+ <script type="text/javascript" src="/script/getqr.js"></script>
+ <script type="text/javascript" src="/script/vars.js"></script>
+ <style>
+        div.qrcode {
+          position: fixed;
+          top: 30%;
+          left: 40%;
+          width: 350px;
+          text-align: center;
+          }
+ </style>
+</head>
+<body>
+        <div class="qrcode">
+        <p>QR-code link will be unavailable in 30 minutes,</p>
+        <p>Install Google Authenticator app on your SmartPhone ans scan QR-code in app:</p>
+        <canvas id="qr"></canvas>
+        <p id="errmsg"></p>
+        </div>
+</body>
+</html>
+

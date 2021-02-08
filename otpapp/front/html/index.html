@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8"/>
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+ <title>Radius OTP Server</title>
+ <script type="text/javascript" src="/script/main.js"></script>
+ <script type="text/javascript" src="/script/vars.js"></script>
+ <script type="text/javascript" src="/script/qrious.js"></script>
+ <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<img id="gear" src="images/gear.png">
+<nav class="menu">
+  <ol>
+    <li class="menu-item"><a class = "home" href="#">Home</a></li>
+    <li class="menu-item">
+      <a href="#">Manage Users</a>
+      <ol class="sub-menu">
+        <li class="menu-item"><a class ="user_add" href="#">Add User</a></li>
+        <li class="menu-item"><a class ="user_qr_get" href="#">Get User QR code</a></li>
+        <li class="menu-item"><a class ="user_lock" href="#">Lock/Unlock User</a></li>
+		<li class="menu-item"><a class ="user_del" href="#">Delete User</a></li>
+		<li class="menu-item"><a class ="user_manage" href="#">Manage Users</a></li>
+      </ol>
+    </li>
+    <li class="menu-item">
+      <a href="#0">Admin</a>
+      <ol class="sub-menu">
+        <li class="menu-item"><a class="manage_nad" href="#">Manage NAD</a></li>
+        <li class="menu-item"><a class="passwd_change" href="#">Change password</a></li>
+      </ol>
+    </li>
+	<li class="menu-item"><a class="bug_repot" a href="#">Report a BUG</a></li>
+  </ol>
+</nav>
+
+<img class = "ls-image" src="images/otp-sec.png">
+<div class="nad-editor">
+<form id="nad-form" class="nad-form" onsubmit="return false">
+<textarea id="nad-text" name="NAD">
+</textarea>
+<button id="nad_submit">Save</button>
+<button id="nad_cancel">Cancel</button>
+<p id="nad_status"></p>
+</form>
+</div>
+<div class="password-div">
+<form id="passwordform" class="password-form" onsubmit="return false">
+    <input type="password" placeholder="Old password" id="oldpass" required>
+    <input type="password" placeholder="New password" id="newpass" required>
+	<input type="password" placeholder="Repeat password" id="reppass" required>
+    <button>Change</button>
+	<p class="passerr-msg" id="passerrnmsg"></p>
+</form>
+</div>
+<div class="userpass-div">
+<form id="useadd-form" class="useradd-form" onsubmit="return false">
+    <input type="text" placeholder="Username" id="nusername" required>
+    <input type="email" placeholder="Email" id="nuemail" required>
+	<button>Add</button>
+	<p class="usadd-msg" id="usaddmsg"></p>
+</form>
+</div>
+<div class="user-qr">
+    <canvas id="qr"></canvas>
+	<button type="button" id='qr_download'>Download</button></a>
+	<button type="button" id='qr_email'>Email</button></a>
+</div>
+<div class="userqr-div">
+<form id="useadd-form" class="useradd-form" onsubmit="return false">
+    <input type="text" placeholder="Username" id="qrusername" required>
+	<button>Get QR</button>
+	<p class="qr-msg" id="qrmsg"></p>
+</form>
+<div class="userlock-div">
+<form id="lock-form" class="lock-form" onsubmit="return false">
+    <input type="text" placeholder="Username" id="lockusername" required>
+	<button id="user_lock">Lock</button>
+	<button id="user_unlock">Unlock</button>
+	<p class="lock-msg" id="lockmsg"></p>
+</form>
+</div>
+<div class="deleteuser-div">
+<form id="delete-form" class="delete-form" onsubmit="return false">
+    <input type="text" placeholder="Username" id="delusername" required>
+	<button id="user_delete">Delete</button>
+	<p class="del-msg" id="delmsg"></p>
+</form>
+</div>
+<div class="areyousure-div">
+	<p></p>
+	<button id="yessure">Yes</button>
+	<button id="notsure">No</button>
+</div>
+
+<div class="usernamage-div">
+<input type="text" placeholder="Username pattern" id="serchuser" required>
+	<ul class = "users-selection">
+	</ul>
+	<p id="useraction-status"></p>
+	<ul class="users-action">
+		<li id="unlock_user">Unlock user</li>
+		<li id="lock_user">Lock user</li>
+		<li id="qrcode_user">Get QR Code</li>
+		<li id="newqrcode_user">Generate new QR</li>
+		<li id="copy_user">Copy username</li>
+	</ul>
+	<div class="usermanage-pagination">
+		<a href="#" id="prevnext">&laquo;</a>
+		<a href="#" class="active_page">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#" id="prevnext">&raquo;</a>
+	</div>
+</div>
+
+</body>
+</html>
