@@ -36,5 +36,5 @@ make some changes:
    Also you can change domain name to your domain, this needs for generating user email's with one-time link to get their QR codes.
 3) open you linux host ports to access from your network. ports that need to be opened: 443/tcp (web ui), 9443/tcp (api access), 1812/udp, 1813/udp (radius stuff)
 4) go back to otpapp folder and run docker-compose up; wait for Docker hosts to come-up.
-5) go to https://<your linux host ip>; authenticate with admin/admin. admin password can be changed.
+5) go to https:// = your linux host ip = ; authenticate with admin/admin. admin password can be changed.
 
