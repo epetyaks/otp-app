@@ -23,13 +23,13 @@ make some changes:
    also you can use your existant private key(no password!) and certificate files. save private key as private_key.pem, certificate as public_cert.pem
    run some copy commands:
    
-    yes | sudo cp -rf ssl/private_key.pem api/ssl/private_key.pem
+    yes | cp -rf ssl/private_key.pem api/ssl/private_key.pem
     
-    yes | sudo cp -rf ssl/public_cert.pem api/ssl/publice_cert.pem
+    yes | cp -rf ssl/public_cert.pem api/ssl/publice_cert.pem
     
-    yes | sudo cp -rf ssl/private_key.pem front/ssl/private_key.pem
+    yes | cp -rf ssl/private_key.pem front/ssl/private_key.pem
     
-    yes | sudo cp -rf ssl/public_cert.pem front/ssl/publice_cert.pem
+    yes | cp -rf ssl/public_cert.pem front/ssl/publice_cert.pem
     
 2) go to front/html/script/ folder
    change var serverURI = 'https://10.134.197.50' to your host IP or domain name, like https://example.com or https://1.1.1.1
