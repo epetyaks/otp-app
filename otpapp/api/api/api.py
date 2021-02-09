@@ -152,7 +152,7 @@ class NADAction(Resource):
             dt = request.json['nad']
             ds = "sed -i '1,/####OTPAUTHCLIENTS/!d' /etc/raddb/clients.conf; "
             ds = ds + "sed '/^####OTPAUTHCLIENTS$/r'<(\n"
-            cmd = ds+''.join(["echo '"+d+"'\n" for d in dt.split('\n')])+") -i -- /etc/raddb/clients.conf"
+            cmd = ds+''.join(["echo '"+d+"'\n" for d in dt.split('\n')])+") -i -- /etc/raddb/clients.conf"+";\n systemctl restart radiusd;\n"
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.connect(linuxIP, username=linuxCred['user'], password=linuxCred['password'], look_for_keys=False)
