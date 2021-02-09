@@ -8,6 +8,7 @@ Consists of 4 Docker containers:
 
 CentOS7 users can just download setup.sh script and run.
 All needed packages will be installed, firewall ports wil be opened.
+But anyway, better to do it by hands bellow:
 
 For every other linux:
 install docker, docker-compose for sure.
